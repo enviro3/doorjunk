@@ -9,6 +9,14 @@
   </head>
 
   <body>
+    <ul>
+      <li><%= link_to "Home", home_products_path %></li>
+      <li><%= link_to "About", home_about_path %></li>
+      <li><%= link_to "Product", home_products_path %></li>
+      <li><%= link_to "Take Action", home_takeAction_path %></li>
+      <li><%= link_to "Cart", home_cart_path %></li>
+      <li><%= link_to "Contact", home_contact_path %></li>
+    </ul>
     <%= yield %>
   </body>
 </html>
