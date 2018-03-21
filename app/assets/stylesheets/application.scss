@@ -13,6 +13,22 @@
  *= require_tree .
  *= require_self
  */
+@import "bootstrap-sprockets";
+@import "bootstrap";
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+body {
+  //background-image: url("paper.gif");
+  background-color: rgb(231, 235, 214);
+}
+
+h2 {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+
+h1.hometile {
+  text-align: left;
+}
