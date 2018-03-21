@@ -1,2 +1,42 @@
-<h1>Home#index</h1>
-<p></p>
+<body>
+  <h1 class="hometile">Junk Mail is a Problem in the UK</h1>
+  <p>NEARLY ALL UK HOUSEHOLDS RECEIVE POST (AND JUNK MAIL) THROUGH THE DOOR. THE LETTERBOX CONSTANTLY CLANGS WITH THE ARRIVAL OF USELESS AND WASTEFUL PAPER THAT FILLS OUR HOMES.</p>
+
+  <h1 class="hometile">The (Only Available) Answer...?</h1>
+
+  <p>PUT A MEAN SIGN ON YOUR LETTERBOX, THE TYPE COMMONLY
+  RESERVED FOR THE ELDERLY, AND OPENLY UPTIGHT.</p>
+
+  <h1 class="hometile">The Opportunity</h1>
+  <p>COMBAT THIS PROBLEM THROUGH HUMOUR, ADDING JOY TO ONE’S HOME AND THE NEIGHBOURHOOD, AND STARTING A MOVEMENT TO RID THE WORLD OF JUNK MAIL FOR GOOD.</p>
+
+  <div class="image">
+    <%= image_tag "tarsier.jpg" %>
+  </div>
+  <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+      <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+      <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    </ol>
+    <div class="carousel-inner" role="listbox">
+      <div class="carousel-item active">
+        <%= image_tag("tarsier.jpg",  alt: "First Slide", class: "d-block img-fluid", height: "42", width: "42") %>
+      </div>
+      <div class="carousel-item">
+        <%= image_tag("tarsier.jpg",  alt: "First Slide", class: "d-block img-fluid") %>
+      </div>
+      <div class="carousel-item">
+        <img class: "d-block img-fluid"      src="/assets/tarsier-e2511b4421606889f61bb73c29330e33321fc8af5b7c2e1aa29c09d4715b5d21.jpg" alt="Tarsier">>
+      </div>
+    </div>
+    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="sr-only">Previous</span>
+    </a>
+    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="sr-only">Next</span>
+    </a>
+  </div>
+</body>
