@@ -20,15 +20,15 @@
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
       <div class="item active">
-        <%= image_tag("sauim-de-coleira.jpg",  alt: "First Slide", class: "d-block w-100", width: 1200, height: 500) %>
+        <%= link_to(image_tag("sauim-de-coleira.jpg",  :href => "google.com", alt: "First Slide", class: "d-block w-100", width: 1200, height: 500), home_products_path) %>
       </div>
 
       <div class="item">
-        <%= image_tag("tarsier.jpg",  alt: "First Slide", class: "d-block w-100", width: 1200, height: 500) %>
+        <%= link_to(image_tag("tarsier.jpg",  alt: "First Slide", class: "d-block w-100", width: 1200, height: 500), home_products_path) %>
       </div>
 
       <div class="item">
-        <%= image_tag("shutterstock.jpg",  alt: "First Slide", class: "d-block w-100",width: 1200, height: 500) %>
+        <%= link_to(image_tag("shutterstock.jpg",  alt: "First Slide", class: "d-block w-100",width: 1200, height: 500),home_products_path) %>
       </div>
     </div>
 
