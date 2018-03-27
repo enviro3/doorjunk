@@ -4,6 +4,10 @@ class HomeController < ApplicationController
     @current_page='index'
   end
 
+  def faq
+    @current_pages='faq'
+  end
+
   def products
     @current_page='products'
   end
