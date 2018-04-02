@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'tester/show'
+
   resources :products, only: [:index]
   resource :cart, only: [:show]
   resources :order_items, only: [:create, :update, :destroy]
