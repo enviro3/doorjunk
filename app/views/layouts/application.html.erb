@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <title>Doorjunk</title>
@@ -22,10 +22,7 @@
           <li class="<%= @current_page === 'products' ? 'active' : '' %>" ><%= link_to "Products", home_products_path %></li>
           <li class="<%= @current_page === 'about' ? 'active' : '' %>" ><%= link_to "About", home_about_path %></li>
           <li class="<%= @current_page === 'takeAction' ? 'active' : '' %>" ><%= link_to "Take Action", home_takeAction_path %></li>
-<<<<<<< HEAD
-=======
           <li class="<%= @current_page === 'faq' ? 'active' : '' %>" ><%= link_to "FAQ", home_faq_path %></li>
->>>>>>> doorjunk-ContactPage
           <li class="<%= @current_page === 'contact' ? 'active' : '' %>" ><%= link_to "Contact", home_contact_path %></li>
           <li class="<%= @current_page === 'cart' ? 'active' : '' %>" ><%= link_to "Cart", home_cart_path %></li>
         </ul>
@@ -33,5 +30,39 @@
     </nav>
       <%= yield %>
     </div>
+
   </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShoppingCartExample</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1><%= link_to "My Store", root_path %></h1>
+      </div>
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+      </div>
+    </div>
+    <hr>
+    <%= yield %>
+  </div>
+
+</body>
 </html>
