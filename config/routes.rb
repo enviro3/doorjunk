@@ -14,8 +14,6 @@ Rails.application.routes.draw do
 
   get 'carts/show'
 
-  get 'products/index'
-
    # resources :home
 
   get 'home/products'

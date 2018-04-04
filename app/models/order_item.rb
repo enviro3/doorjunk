@@ -20,6 +20,10 @@ class OrderItem < ApplicationRecord
     unit_price * quantity
   end
 
+  def increment_quantity
+    self.quantity = self.quantity + 1
+  end
+
 private
   def product_present
     if product.nil?

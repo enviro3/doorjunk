@@ -4,7 +4,12 @@ class ApplicationController < ActionController::Base
 
   def current_order
     if !session[:order_id].nil?
-      Order.find(session[:order_id])
+      begin
+        Order.find(session[:order_id])
+      rescue ActiveRecord::RecordNotFound
+        session.delete(:order_id)
+        Order.new
+      end
     else
       Order.new
     end
