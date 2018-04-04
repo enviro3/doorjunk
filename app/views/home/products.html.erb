@@ -1,4 +1,4 @@
-<h1>Door Stickers to Combat Junkmail!</h1>
+<!-- <h1>Door Stickers to Combat Junkmail!</h1>
 <p style="color:red;text-align:center">Please note each sticker comes on a sticker sheet to custom fit your letter box!</p>
 
 <div class= "children_allergic" "container-fluid">
@@ -31,4 +31,47 @@
 <div class= "toilet_roll" "container-fluid">
   <%= image_tag("toilet_roll.jpg", width: 1000, height: 200, padding: 200) %>
   <p>price tag </p>
-</div>
+</div> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ShoppingCartExample</title>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <% if request.ssl? %>
+    <%= stylesheet_link_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% else %>
+    <%= stylesheet_link_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css' %>
+    <%= javascript_include_tag 'http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js' %>
+  <% end %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-6">
+        <h1><%= link_to "My Store", root_path %></h1>
+      </div>
+      <div class="col-xs-6 text-right">
+        <h1 class="cart-text"><%= render 'layouts/cart_text' %></h1>
+      </div>
+    </div>
+    <h3 class="text-center">Products for Sale</h3>
+
+    <div class="row">
+      <div class="col-xs-6 col-xs-offset-3">
+        <% @products.each do |product| %>
+          <%= render "product_row", product: product, order_item: @order_item %>
+        <% end %>
+      </div>
+    </div>
+
+    <hr>
+    <%= yield %>
+  </div>
+
+</body>
+</html>
