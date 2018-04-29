@@ -7,7 +7,16 @@ RSpec.describe OrderStatus, type: :model do
 
   describe "attributes" do
     it "has an id, name, and timestamps" do
-     expect(orderstatus).to have_attributes(id: orderstatus.id, name: orderstatus.name, created_at: orderstatus.created_at, updated_at: orderstatus.updated_at)
+      expected_attributes = {
+        id: orderstatus.id,
+        name: orderstatus.name,
+        created_at: orderstatus.created_at,
+        updated_at: orderstatus.updated_at
+      }
+
+      expect(orderstatus).to have_attributes(expected_attributes)
     end
-   end
+  end
+  # order status
+
 end
