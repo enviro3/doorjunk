@@ -5,10 +5,8 @@
     <div class = "col-sm">
       <h4 class="text-right"> Subtotal: <span style="color: purple"><%= number_to_currency current_order.subtotal %></span></h4>
     </div>
-    <div class="col-sm">
-      <%= link_to '<button type="button" class="btn btn-warning pull-right">Proceed to Payment</button>'.html_safe, order_new_path%>
-    </div>
   </div>
 </div>
-<%= render "charges/stripe_checkout" %>
+<!-- <%= render "charges/stripe_checkout" %> -->
+
 <!-- <%= render "charges/shipping_info" %> -->
