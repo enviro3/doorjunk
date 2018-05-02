@@ -7,6 +7,9 @@ RSpec.describe Order, type: :model do
   @order_status = Order.order_status_id = 1
   @subtotal = Order.subtotal = subtotal
 
+describe "subtotal" do
+  let (:price){5.0}
+  let (:quantity){2}
   it "has a subtotal" do
 
 
@@ -20,6 +23,9 @@ RSpec.describe Order, type: :model do
     Order.subtotal = subtotal
   end
 end
+
+end
+
 
 
 # belongs_to :order_status
