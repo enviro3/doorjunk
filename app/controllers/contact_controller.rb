@@ -1,12 +1,11 @@
-class ApplicationMailer < ActionMailer::Base
-  default to: "doorjunkcontact@gmail.com"
-
-  def send_mail
+class ContactController < ApplicationController
+ skip_before_action :verify_authenticity_token
+  def create
     name = params[:name]
     email = params[:email]
     body = params[:comments]
-    ContactMailer.contact_email(name, email, body).deliver
-    redirect_to contact_path, notice: 'Message sent'
+    ApplicationMailer.contact_email(name, email, body).deliver
+    redirect_to home_index_path, notice: 'Message sent'
   end
 
 end
