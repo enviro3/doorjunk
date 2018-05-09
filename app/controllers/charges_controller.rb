@@ -1,19 +1,19 @@
 class ChargesController < ApplicationController
   def create
     @order = current_order
+    @amount = amount
      # Creates a Stripe Customer object, for associating
      # with the charge
      customer = Stripe::Customer.create(
-       email: current_user.email,
-       card: params[:stripeToken]
+       :email => params[:stripeEmail],
+       :source  => params[:stripeToken]
      )
 
      # Where the real magic happens
      charge = Stripe::Charge.create(
-       customer: customer.id, # Note -- this is NOT the user_id in your app
-       amount: Amount.default,
-       description: "BigMoney Membership - #{current_user.email}",
-       currency: 'usd'
+       :amount      => @amount,
+       :currency    => 'usd',
+       :description => 'Rails Stripe customer'
      )
 
      flash[:notice] = "Thanks for all the money, #{current_user.email}! Feel free to pay me again."
