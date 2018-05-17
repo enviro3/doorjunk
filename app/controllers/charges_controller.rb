@@ -1,7 +1,8 @@
 class ChargesController < ApplicationController
   def create
     @order = current_order
-
+puts "DERPDERPDERPDERPDERP"
+puts params
      # Creates a Stripe Customer object, for associating
      # with the charge
      customer = Stripe::Customer.create(
@@ -14,29 +15,27 @@ class ChargesController < ApplicationController
                     :shippingcountry => "England",
                     :shippingcounty => params[:shippingcountry],
                     :shippingcity => params[:shippingcity],
-                    :postcode => params[:postcode],
-                    :email_address => params[:email],
-                    :phone => params[:phone]}
+                    :postcode => params[:postcode]}
      )
-
-     # Where the real magic happens
-     charge = Stripe::Charge.create(
-       :customer    => customer.id,
-       :amount      => (@order.subtotal * 100).to_i,
-       :description => 'Rails Stripe customer',
-       :currency    => 'usd'
-
-     )
-     #the below Flash notice is not showing up! Note to Richard
-     flash[:notice] = "Thanks for all the money, #{params[:email]}! Feel free to pay me again."
-     # redirect_to root_path
-
-     # Stripe will send back CardErrors, with friendly messages
-     # when something goes wrong.
-     # This `rescue block` catches and displays those errors.
+     begin
+       # Where the real magic happens
+       charge = Stripe::Charge.create(
+         :customer    => customer.id,
+         :amount      => (@order.subtotal * 100).to_i,
+         :description => 'Rails Stripe customer',
+         :currency    => 'usd'
+       )
+       flash[:notice] = "Thanks for all the money, #{params[:firstname]} #{params[:lastname]}! Feel free to pay me again."
+       #play with charge object, valid charge so send email to customer
+       redirect_to root_path
+       session.delete(:order_id)
      rescue Stripe::CardError => e
        flash[:alert] = e.message
        redirect_to new_charge_path
+     end
+
+
+
    end
 
    def new

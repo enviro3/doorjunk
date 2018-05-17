@@ -1,7 +1,8 @@
-<link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<!-- Richard says the below needs to be removed and put in head tag of application layout -->
+<!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="https://js.stripe.com/v2/"></script>
+<script src="https://js.stripe.com/v2/"></script> -->
 <!------ Include the above in your HEAD tag ---------->
 <%= form_tag(charges_path, method: "post") do %>
   <div class="container">
@@ -127,44 +128,11 @@
 
             </div>
 
-
-            <div class="form-group col-md-12 bg-primary">
-                <label class="control-label" for="contactinformation">Contact Information:</label>
-            </div>
-
-            <div class="form-group col-md-6">
-              <span class="required-lbl">* </span><label class="control-label" for="emailaddress">Email Address</label>
-              <div class="controls">
-                <input id="email" name="email" type="email" placeholder="" class="form-control" required="">
-              </div>
-            </div>
-
-            <div class="form-group col-md-6">
-              <label class="control-label" for="phone">Phone</label>
-              <div class="controls">
-                <input id="phone" name="phone" type="number" placeholder="" class="form-control" required="">
-              </div>
-            </div>
-
-
-            <div class="form-group col-md-12">
-                <div class="control-group">
-                  <label class="control-label" for="iaccept"></label>
-                  <div class="controls">
-                    <label class="checkbox" for="iaccept-0">
-                      <input type="checkbox" name="iaccept" id="iaccept-0" value="I accept the Teams and conditions">
-                      I accept the <a href="">Teams and conditions</a>
-                    </label>
-                  </div>
-                </div>
-            </div>
-
-
             <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
               data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
               data-description="Purchasing sticker(s)"
               data-amount="<%= current_order.subtotal * 100 %>"
               data-locale="auto"></script>
-        </div>
+      </div>
 	</div>
 <% end %>

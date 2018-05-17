@@ -1,1 +1,6 @@
 <%= link_to "#{current_order_total_quantity} Items in Cart ( #{number_to_currency current_order.subtotal} )", cart_path, class: "btn btn-link" %>
+<% if @alert_text %>
+  </br><small>Added <%=@alert_text%> to cart!</small>
+<% else %>
+</br><small>&nbsp</small>
+<% end %>
