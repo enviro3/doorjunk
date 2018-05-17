@@ -1,8 +1,7 @@
 class ChargesController < ApplicationController
   def create
     @order = current_order
-puts "DERPDERPDERPDERPDERP"
-puts params
+
      # Creates a Stripe Customer object, for associating
      # with the charge
      customer = Stripe::Customer.create(
@@ -23,10 +22,13 @@ puts params
          :customer    => customer.id,
          :amount      => (@order.subtotal * 100).to_i,
          :description => 'Rails Stripe customer',
-         :currency    => 'usd'
+         :currency    => 'usd',
+         :receipt_email => customer.email
        )
        flash[:notice] = "Thanks for all the money, #{params[:firstname]} #{params[:lastname]}! Feel free to pay me again."
        #play with charge object, valid charge so send email to customer
+
+
        redirect_to root_path
        session.delete(:order_id)
      rescue Stripe::CardError => e
