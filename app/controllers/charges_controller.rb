@@ -24,7 +24,6 @@ class ChargesController < ApplicationController
          :description => 'Rails Stripe customer',
          :currency    => 'usd',
          :receipt_email => customer.email,  
-         :livemode => true
        )
        flash[:notice] = "Thanks for your payment, #{params[:firstname]} #{params[:lastname]}! You will recieve an email shortly with your order confirmation."
        #play with charge object, valid charge so send email to customer
