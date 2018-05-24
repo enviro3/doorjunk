@@ -17,6 +17,5 @@ RSpec.describe OrderStatus, type: :model do
       expect(orderstatus).to have_attributes(expected_attributes)
     end
   end
-  # order status
 
 end
