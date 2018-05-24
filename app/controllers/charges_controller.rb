@@ -25,9 +25,9 @@ class ChargesController < ApplicationController
          :currency    => 'usd',
          :receipt_email => customer.email
        )
-       flash[:notice] = "Thanks for all the money, #{params[:firstname]} #{params[:lastname]}! Feel free to pay me again."
+       flash[:notice] = "Thanks for your payment, #{params[:firstname]} #{params[:lastname]}! You will recieve an email shortly with your order confirmation."
        #play with charge object, valid charge so send email to customer
-
+       # deliver from ActionMailer.deliver
 
        redirect_to root_path
        session.delete(:order_id)

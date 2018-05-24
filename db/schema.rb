@@ -45,6 +45,7 @@ ActiveRecord::Schema.define(version: 20180331163329) do
   end
 
   create_table "orders", force: :cascade do |t|
+    t.integer "price"
     t.decimal "subtotal", precision: 12, scale: 3
     t.decimal "tax", precision: 12, scale: 3
     t.decimal "shipping", precision: 12, scale: 3
