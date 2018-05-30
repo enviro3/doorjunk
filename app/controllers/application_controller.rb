@@ -7,8 +7,6 @@ class ApplicationController < ActionController::Base
     if !session[:order_id].nil?
       begin
         order_found = Order.find(session[:order_id])
-        puts "about to return order_found!!!"
-        puts "[ApplicationController#current_order] order_id: #{session[:order_id]}, order: #{order_found.inspect}"
         return order_found
         if order_found == nil
           Order.new
@@ -20,7 +18,6 @@ class ApplicationController < ActionController::Base
         Order.new
       end
     else
-      puts "The session was nil, returning a new Order"
       Order.new
     end
   end

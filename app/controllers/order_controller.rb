@@ -5,7 +5,5 @@ class OrderController < ApplicationController
   end
 
   def create
-    puts "Here are params!!!"
-    puts params
   end
 end

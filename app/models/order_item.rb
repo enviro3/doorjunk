@@ -7,7 +7,7 @@ class OrderItem < ApplicationRecord
   validate :order_present
 
   before_save :finalize #updates the unit_price and total_price fields
-  #@price Product.new =
+
 
   def unit_price  #as long as item is in cart, item price will not change to protect the customer
     if persisted?
