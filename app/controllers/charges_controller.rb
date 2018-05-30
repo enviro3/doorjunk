@@ -42,7 +42,7 @@ class ChargesController < ApplicationController
      @order = current_order
      @stripe_btn_data = {
        key: "#{ Rails.configuration.stripe[:publishable_key] }",
-       description: "BigMoney Membership - #{current_user.name}",
+       description: "Cart price",
        amount: Amount.default
      }
    end
