@@ -24,4 +24,4 @@
 
 # Ignore application configuration
 /config/application.yml
-/config/temporary.yml
+/config/secrets.yml
